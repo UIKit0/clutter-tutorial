@@ -1,3 +1,9 @@
+2010-02-23  Daniel Borgmann  <danielb@openismus.com>
+
+	Update version number to 1.0.
+
+	* docs/tutorial/clutter-tut.xml: Change version number.
+
 2010-01-05  Murray Cumming  <murrayc@murrayc.com>
 
 	Remove calls to cogl_push_matrix() and cogl_pop_matrix(). 
