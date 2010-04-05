@@ -1,3 +1,7 @@
+2010-04-05  Murray Cumming  <murrayc@murray.com>
+
+	* Makefile_web.am_fragment: Correct the upload path.
+
 2010-02-23  Daniel Borgmann  <danielb@openismus.com>
 
 	Update version number to 1.0.
