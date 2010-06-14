@@ -1,3 +1,10 @@
+2010-06-14  Murray Cumming  <murrayc@murrayc.com>
+
+	Animation example: Don't unref the animation before even running main loop.
+
+	* examples/animation/main.c (main): Move the unref of the animation.
+    This was silly. Thanks to Iven Day.
+
 2010-04-05  Murray Cumming  <murrayc@murray.com>
 
 	* Makefile_web.am_fragment: Correct the upload path.
@@ -10,11 +17,11 @@
 
 2010-01-05  Murray Cumming  <murrayc@murrayc.com>
 
-	Remove calls to cogl_push_matrix() and cogl_pop_matrix(). 
+	Remove calls to cogl_push_matrix() and cogl_pop_matrix().
 
 	* examples/custom_actor/triangle_actor.c (do_triangle_paint):
 	* examples/custom_container/examplebox.c (example_box_paint):
-	Remove calls to cogl_push_matrix() and cogl_pop_matrix() that are 
+	Remove calls to cogl_push_matrix() and cogl_pop_matrix() that are
 	apparently now unnecessary.
 
 2009-10-19  Murray Cumming  <murrayc@murrayc.com>
@@ -22,8 +29,8 @@
 	Use floating point numbers when needed for clutter_actor_animate*().
 
 	* docs/tutorial/clutter-tut.xml:
-	* examples/animation/main.c (main): Use, for instance, 100.0 instead of 
-	100 for x and y values to clutter_actor_animate*(), as noticed by 
+	* examples/animation/main.c (main): Use, for instance, 100.0 instead of
+	100 for x and y values to clutter_actor_animate*(), as noticed by
 	Neil Roberts on the clutter mailing list a while ago.
 
 2009-08-26  Murray Cumming  <murrayc@murrayc.com>
@@ -31,26 +38,26 @@
 	Use clutter-1.0 and clutter-gtk-0.10.
 
 	* configure.ac: Use clutter-1.0 and clutter-gtk-0.10.
-	* examples/gtk_scrolling/main.c (main): gtk_clutter_viewport_new() takes 
+	* examples/gtk_scrolling/main.c (main): gtk_clutter_viewport_new() takes
 	an extra parameter now.
 	* examples/custom_container/examplebox.c (example_box_pick):
 	* examples/scrolling/scrollingcontainer.c
-	(example_scrolling_container_pick): Use clutter_actor_paint() instead of 
-	deprecated clutter_actor_pick(), though I am now not sure if these 
+	(example_scrolling_container_pick): Use clutter_actor_paint() instead of
+	deprecated clutter_actor_pick(), though I am now not sure if these
 	implementations are correct at all.
 
 2009-06-25  Murray Cumming  <murrayc@murrayc.com>
 
 	Timeline, Animations: Mentino duration not frames-per-second.
-	
-	* docs/tutorial/clutter-tut.xml: Timeline, Animations: Talk about duration 
-	rather than frames and frames-per-second, as per the new API. Describe the 
-	wonderful way that clutter now just does the right thing. 
+
+	* docs/tutorial/clutter-tut.xml: Timeline, Animations: Talk about duration
+	rather than frames and frames-per-second, as per the new API. Describe the
+	wonderful way that clutter now just does the right thing.
 
 2009-06-25  Murray Cumming  <murrayc@murrayc.com>
 
 	Fixed the build with latest clutter API.
-	
+
 	* examples/actor_events/main.c (on_stage_button_press),
 	(on_rect_button_press), (on_rect_button_release):
 	* examples/animation/main.c (on_alpha), (main):
@@ -66,10 +73,10 @@
 	* examples/scrolling/scrollingcontainer.h:
 	* examples/stage/main.c (on_stage_button_press):
 	* examples/text/main.c (main):
-	* examples/timeline/main.c (main): Fix the build with the latest clutter API, 
+	* examples/timeline/main.c (main): Fix the build with the latest clutter API,
 	mostly:
-	- Providing a milliseconds duration to clutter_timeline_new() instead of 
-	frame and frames_per_second, plus changing associated functions to be 
+	- Providing a milliseconds duration to clutter_timeline_new() instead of
+	frame and frames_per_second, plus changing associated functions to be
 	duration-wise rather than frames-wise.
 	- Use float instead of gint.
 
@@ -86,8 +93,8 @@
 2009-05-05  Murray Cumming  <murrayc@murrayc.com>
 
 	* docs/tutorial/clutter-tut.xml:
-	* examples/text/main.c (main): Improve the preferred-height ClutterText 
-	explanation and example. 
+	* examples/text/main.c (main): Improve the preferred-height ClutterText
+	explanation and example.
 
 2009-05-05  Johannes Schmid <jschmid@openismus.com>
 
@@ -101,7 +108,7 @@
 	* docs/tutorial/figures/gtk_scrolling.png:
 	* docs/tutorial/figures/text.png:
 	Use Clearlooks for screenshots
-	
+
 	* docs/tutorial/figures/multiline_text_entry.png:
 	* docs/tutorial/figures/Makefile.am:
 	Removed obsolete screenshot
@@ -109,7 +116,7 @@
 2009-05-04  Murray Cumming  <murrayc@murrayc.com>
 
 	Stage Widget Scrolling section improvements.
-	
+
 	* docs/tutorial/clutter-tut.xml: Stage Widget Scrolling: Correct the text.
 	In particular, I thing Johannes meant GtkRange rather than GtkRuler.
 	Put the example inside the section.
@@ -123,9 +130,9 @@
   * docs/tutorial/clutter-tut.xml:
   * docs/tutorial/figures/scrolling.png_
   * docs/tutorial/figures/gtk_scrolling.png:
-  
+
   Bring back old scrolling example and reorganize tutorial
-  
+
   The old scrolling appendix is now back in place while the gtk scrolling
   examples was moved inside the stage section near to the gtk embed widget.
   Also renamed the Gtk+ examples so that they can be recognized as part of
@@ -135,14 +142,14 @@
 
 	* examples/text/main.c:
 	* docs/tutorial/figures/text.png:
-	
+
 	Fixed text alignment in example and updated screenshot (#935)
 
 2009-05-04  Johannes Schmid <jschmid@openismus.com>
 
 	* configure.ac
 	* examples/entry/*
-	
+
 	Removed obsolete entry example
 
 2009-05-01  Murray Cumming  <murrayc@murrayc.com>
@@ -152,20 +159,20 @@
 2009-05-01  Murray Cumming  <murrayc@murrayc.com>
 
 	ClutterText corrections.
-	
-	* docs/tutorial/clutter-tut.xml: ClutterText section: Correct/Improve the 
+
+	* docs/tutorial/clutter-tut.xml: ClutterText section: Correct/Improve the
 	text.
-	* examples/text/main.c (main): Add a second ClutterText so we have one 
+	* examples/text/main.c (main): Add a second ClutterText so we have one
 	non-editable and one editable multi-line editable.
 
 2009-04-30  Murray Cumming  <murrayc@murrayc.com>
 
 	Fix the build.
-	
-	* configure.ac: 
-	* examples/text/Makefile.am: Added this file and mentioned it to fix the 
+
+	* configure.ac:
+	* examples/text/Makefile.am: Added this file and mentioned it to fix the
 	build.
-	* examples/text/main.c, examples/scrolling/main.c: Correct formatting. 
+	* examples/text/main.c, examples/scrolling/main.c: Correct formatting.
 
 2009-04-29  Johannes Schmid  <jschmid@openismus.com>
 
@@ -174,7 +181,7 @@
 	* docs/tutorial/clutter-tut.xml:
 	* docs/tutorial/figures/text.png:
 	Added section for ClutterText
-	
+
 	Added a section and an example for ClutterText. Moved scrolling section
 	to normal section from appendix.
 
@@ -185,40 +192,40 @@
 	* docs/tutorial/clutter-tut.xml:
 	* docs/tutorial/figures/scrolling.png:
 	Ported scrolling example to the new ClutterViewport class
-  
+
 	Updated example code and scrolling chapter in the tutorial
 	(openedhand bug #935)
 
 2009-04-27  Murray Cumming  <murrayc@murrayc.com>
 
 	Mention ClutterText.
-	
+
 	* configure.ac:
 	* docs/examples/: Removed multiline_text_entry/
-	* docs/tutorial/clutter-tut.xml: Actors: Mention ClutterText instead of 
+	* docs/tutorial/clutter-tut.xml: Actors: Mention ClutterText instead of
 	ClutterEntry and ClutterLabel.
-	Remove the multiline text editing appendix because ClutterText can now do that. 
+	Remove the multiline text editing appendix because ClutterText can now do that.
 
 2009-04-24  Murray Cumming  <murrayc@murrayc.com>
 
 	Don't mention 0.8.
-	
-	* docs/tutorial/clutter-tut.xml: Change the 0.8 version entity to 0.9, 
+
+	* docs/tutorial/clutter-tut.xml: Change the 0.8 version entity to 0.9,
 	and correct the reference links.
 
 2009-04-24  Murray Cumming  <murrayc@murrayc.com>
 
-	* docs/tutorial/clutter-tut.xml: Contributing: Change the email address and 
-	mention the git module. 
+	* docs/tutorial/clutter-tut.xml: Contributing: Change the email address and
+	mention the git module.
 
 2009-04-24  Murray Cumming  <murrayc@murrayc.com>
 
 	Correct the Animations and Behaviours updates.
-	 
-	* docs/tutorial/clutter-tut.xml: Animations: Make it clear that apps 
-	never need to use anything but the clutter_actor_animate() convenience 
-	functions. Move the ClutterAlpha description here, from the Behaviours 
-	chapter, because this is now the first mention. Remove mention of 
+
+	* docs/tutorial/clutter-tut.xml: Animations: Make it clear that apps
+	never need to use anything but the clutter_actor_animate() convenience
+	functions. Move the ClutterAlpha description here, from the Behaviours
+	chapter, because this is now the first mention. Remove mention of
 	removed standard ClutterAlpha callbacks.
 
 2009-04-21  Murray Cumming  <murrayc@murrayc.com>
@@ -226,7 +233,7 @@
 	docs/tutorial/clutter-tut.xml: Improved the text of the recent additions.
 
 2009-04-21  Johannes Schmid <jschmid@openismus.com>
-  
+
   * docs/tutorial/clutter-tut.xml: Added section about timeline markers
   and Gtk+ integration (#935)
   * examples/timeline/main.c: Added example for timeline markers
@@ -234,7 +241,7 @@
 2009-04-20  Johannes Schmid <jschmid@openismus.com>
 
 	* docs/tutorial/clutter-tut.xml: Fixed section about effects to
-	use animation API 
+	use animation API
 
 2009-04-16  Johannes Schmid <jschmid@openismus.com>
 
@@ -270,35 +277,35 @@
 
 2008-11-06  Murray Cumming  <murrayc@murrayc.com>
 
-	* docs/tutorial/clutter-tut.xml: Correct the version number in the 
+	* docs/tutorial/clutter-tut.xml: Correct the version number in the
 	debian package name. Thanks to Derek Kraan.
 
 2008-08-11  Murray Cumming  <murrayc@murrayc.com>
 
-	* docs/tutorial/Makefile.am: Use the xhtml docbook xsl instead of html. 
+	* docs/tutorial/Makefile.am: Use the xhtml docbook xsl instead of html.
 	* docs/tutorial/clutter-tut.xml: Mention 0.8 instead of 0.7.
 	* configure.ac: Depend on the -0.8 versions instead of 0.7.
 
 2008-06-26  Murray Cumming  <murrayc@murrayc.com>
 
-	* docs/tutorial/Makefile.am: Add use.id.as.filename to the xsltproc call, 
+	* docs/tutorial/Makefile.am: Add use.id.as.filename to the xsltproc call,
 	so our filenames do not change when adding chapters in future.
 	* docs/tutorial/clutter-tut.xml: Added one missing ID.
 
 2008-06-26  Murray Cumming  <murrayc@murrayc.com>
 
 	* docs/tutorial/clutter-tut.xml: Added a Header Files And Linking section.
-	Stage: For both examples, give the gcc command, with the pkg-config call, 
-	and refer to the new chapter. 
+	Stage: For both examples, give the gcc command, with the pkg-config call,
+	and refer to the new chapter.
 
 2008-06-15  Murray Cumming  <murrayc@murrayc.com>
 
-	* docs/tutorial/clutter-tut.xml: Removed the mention of the single-stage 
+	* docs/tutorial/clutter-tut.xml: Removed the mention of the single-stage
 	limitation because this was fixed in 0.7/0.8.
 
 2008-06-15  Murray Cumming  <murrayc@murrayc.com>
 
-	* docs/tutorial/clutter-tut.xml: Hopefully made the explanation of 
+	* docs/tutorial/clutter-tut.xml: Hopefully made the explanation of
 	layout modes a little clearer.
 
 2008-06-14  Jan Arne Petersen  <jpetersen@openismus.com>
@@ -340,7 +347,7 @@
 
 2008-06-11  Murray Cumming  <murrayc@murrayc.com>
 
-	* Makefile_web.am_fragment: Change to a more permanent and 
+	* Makefile_web.am_fragment: Change to a more permanent and
 	API-versioned upload URI.
 
 2008-05-30  Jan Arne Petersen  <jpetersen@openismus.com>
@@ -369,10 +376,10 @@ This is svn trunk, for clutter-0.7. See also the clutter-tutorial-0-6 branch.
 
 2008-03-06  Murray Cumming  <murrayc@murrayc.com>
 
-	* docs/tutorial/clutter-tut.xml: Text Editing appendix: 
-	Add a note that the pango_clutter() function is not public API, 
-	and that you currently have to reimplement it yourself, and that 
-	this might be better in future. 
+	* docs/tutorial/clutter-tut.xml: Text Editing appendix:
+	Add a note that the pango_clutter() function is not public API,
+	and that you currently have to reimplement it yourself, and that
+	this might be better in future.
 
 0.2.0:
 
@@ -382,22 +389,22 @@ This is svn trunk, for clutter-0.7. See also the clutter-tutorial-0-6 branch.
 
 2008-03-03  Murray Cumming  <murrayc@murrayc.com>
 
-	* docs/tutorial/clutter-tut.xml: Multiline Text Entry appendix: 
-	Briefly describe use of PangoLayout and 
+	* docs/tutorial/clutter-tut.xml: Multiline Text Entry appendix:
+	Briefly describe use of PangoLayout and
 	pango_clutter_render_layout().
 	* docs/tutorial/figures/Makefile.am: Added multiline screenshot.
 	* examples/multiline_text_entry/multiline_entry.c:
 	* examples/multiline_text_entry/multiline_entry.h: Simplified some more,
- 	and added some comments. Did not find a way to implement up/down 
+ 	and added some comments. Did not find a way to implement up/down
 	cursor navigation.
 
 2008-02-29  Murray Cumming  <murrayc@murrayc.com>
 
 	* configure.ac:
 	* examples/Makefile.am:
-	* examples/entry/: Added an example of ClutterEntry, though there 
+	* examples/entry/: Added an example of ClutterEntry, though there
 	is no text about this yet.
-	* examples/multiline_text_entry/: Added the start of a multi-line 
+	* examples/multiline_text_entry/: Added the start of a multi-line
 	example for the appendix, by cutting down ClutterEntry.
 
 2008-02-28  Murray Cumming  <murrayc@murrayc.com>
@@ -411,12 +418,12 @@ This is svn trunk, for clutter-0.7. See also the clutter-tutorial-0-6 branch.
 	* examples/scrolling/main.c:
 	* examples/scrolling/scrollingcontainer.c:
 	* examples/scrolling/scrollingcontainer.h:
-	A simple scrolling example. This is very possibly horribly wrong, 
+	A simple scrolling example. This is very possibly horribly wrong,
 	but this is how I will find out.
 
 2008-02-28  Murray Cumming  <murrayc@murrayc.com>
 
-	* docs/tutorial/clutter-tut.xml: Removed the Using OpenGL Directly 
+	* docs/tutorial/clutter-tut.xml: Removed the Using OpenGL Directly
 	appendix because it is covered by the Custom Actor section.
 
 	* docs/tutorial/Makefile.am: Generate a PDF.
@@ -425,38 +432,38 @@ This is svn trunk, for clutter-0.7. See also the clutter-tutorial-0-6 branch.
 
 	* configure.ac:
 	* examples/custom_actor/Makefile.am: distcheck fixes.
-	* docs/tutorial/clutter-tut.xml: Actor sections: Mention the anchor 
+	* docs/tutorial/clutter-tut.xml: Actor sections: Mention the anchor
 	point.
 	Effects section: Show the AlphaFunc diagram from the API reference.
-	Behaviour section: Show the AlphaFunc+Path diagram from the API 
+	Behaviour section: Show the AlphaFunc+Path diagram from the API
 	reference.
-	* docs/tutorial/figures/Makefile.am: Added the diagrams from 
+	* docs/tutorial/figures/Makefile.am: Added the diagrams from
 	the API reference.
 
 2008-02-28  Murray Cumming  <murrayc@murrayc.com>
 
-	* docs/tutorial/clutter-tut.xml: Correct some mentions of widgets to 
+	* docs/tutorial/clutter-tut.xml: Correct some mentions of widgets to
 	mentions of actors.
 	Custom Actor section: Explain pick().
-	Custom Container section: Say what the example does and say what a 
+	Custom Container section: Say what the example does and say what a
 	real container should probably offer.
-	* examples/custom_actor/triangle_actor.c: 
+	* examples/custom_actor/triangle_actor.c:
 	* examples/custom_container/examplebox.c: Implement pick().
 
 2008-02-27  Murray Cumming  <murrayc@murrayc.com>
 
-	* docs/tutorial/clutter-tut.xml: Custom containers section: 
-	Mention that pick() should pick each of its children, and refer to 
-	the Custom Actor section for more details. However, I do not actually 
+	* docs/tutorial/clutter-tut.xml: Custom containers section:
+	Mention that pick() should pick each of its children, and refer to
+	the Custom Actor section for more details. However, I do not actually
 	have those details yet.
 
 2008-02-26  Murray Cumming, <murrayc@murrayc.com>
 
 	* docs/tutorial/clutter-tut.xml: Custom containers section:
 	Mentioned overriding ClutterActor::paint() to paint children.
-	* docs/tutorial/figures/Makefile.am: Added a screenshot of the custom 
+	* docs/tutorial/figures/Makefile.am: Added a screenshot of the custom
 	container.
-	* examples/custom_container/examplebox.c: Do not implement 
+	* examples/custom_container/examplebox.c: Do not implement
 	ClutterActor::pick() because it is not necessary for a simple example.
 
 2008-02-26  Murray Cumming  <murrayc@murrayc.com>
@@ -467,16 +474,16 @@ This is svn trunk, for clutter-0.7. See also the clutter-tutorial-0-6 branch.
 	(example_box_query_coords), (example_box_request_coords),
 	(layout_children):
 	* examples/custom_container/examplebox.h:
-	* examples/custom_container/main.c: Do not ignore the provided x1 and 
+	* examples/custom_container/main.c: Do not ignore the provided x1 and
 	y1 for the container.
 
 2008-02-25  Murray Cumming  <murrayc@murrayc.com>
 
 	* examples/custom_container/examplebox.c:
 	* examples/custom_container/main.c:
-	Improve the implementation, iterating over the children every time we 
+	Improve the implementation, iterating over the children every time we
 	should relayout the children.
-	But the position of the container itself always seems to be 0. Possibly 
+	But the position of the container itself always seems to be 0. Possibly
 	I do not understand allocation/position or both.
 
 2008-02-25  Murray Cumming  <murrayc@murrayc.com>
@@ -487,8 +494,8 @@ This is svn trunk, for clutter-0.7. See also the clutter-tutorial-0-6 branch.
 	* examples/custom_container/Makefile.am:
 	* examples/custom_container/examplebox.c:
 	* examples/custom_container/examplebox.h:
-	* examples/custom_container/main.c: Very cut-down version of 
-	the old ClutterHBox container. Needs more work to make it behave 
+	* examples/custom_container/main.c: Very cut-down version of
+	the old ClutterHBox container. Needs more work to make it behave
 	properly and be easier to understand.
 
 2008-02-22  Murray Cumming  <murrayc@murrayc.com>
@@ -497,15 +504,15 @@ This is svn trunk, for clutter-0.7. See also the clutter-tutorial-0-6 branch.
 	* docs/tutorial/clutter-tut.xml:
 	* docs/tutorial/figures/Makefile.am:
 	* examples/Makefile.am:
-	* examples/actor_group/: Added actors/containers sub-section, 
+	* examples/actor_group/: Added actors/containers sub-section,
 	mentioning ClutterGroup.
 
-	* examples/custom_container/: Added placeholder for a custom 
+	* examples/custom_container/: Added placeholder for a custom
 	containers section and example.
 
 2008-02-21  Murray Cumming  <murrayc@murrayc.com>
 
-	* configure.ac: Depend on clutter-0.6 and clutter-gtk-0.6 instead 
+	* configure.ac: Depend on clutter-0.6 and clutter-gtk-0.6 instead
 	of the -0.5 APIs.
 
 2008-02-21  Murray Cumming  <murrayc@murrayc.com>
@@ -514,14 +521,14 @@ This is svn trunk, for clutter-0.7. See also the clutter-tutorial-0-6 branch.
 	* docs/tutorial/clutter-tut.xml:
 	* docs/tutorial/figures/Makefile.am:
 	* examples/Makefile.am:
-	* examples/score/main.c: Added a Timelines/Score sub-section and 
+	* examples/score/main.c: Added a Timelines/Score sub-section and
 	example. The example is quite stupid.
 
 2008-02-20  Murray Cumming  <murrayc@murrayc.com>
 
 	* examples/stage_widget/main.c: (main):
-	Use gtk_widget_set_size_request(gtkclutterembed) instead of 
-	clutter_actor_set_size(stage) because the latter is not supported 
+	Use gtk_widget_set_size_request(gtkclutterembed) instead of
+	clutter_actor_set_size(stage) because the latter is not supported
 	with GtkClutterEmbed.
 	See http://bugzilla.openedhand.com/show_bug.cgi?id=740
 
@@ -534,7 +541,7 @@ This is svn trunk, for clutter-0.7. See also the clutter-tutorial-0-6 branch.
 	* examples/stage/main.c: (on_stage_button_press):
 	* examples/stage_widget/main.c: (on_button_clicked),
 	(on_stage_button_press):
-	Correct the event signal handlers: They should return gboolean instead 
+	Correct the event signal handlers: They should return gboolean instead
 	of void. C is overly tolerant of my mistakes.
 
 2008-02-02  Murray Cumming  <murrayc@murrayc.com>
@@ -550,7 +557,7 @@ This is svn trunk, for clutter-0.7. See also the clutter-tutorial-0-6 branch.
 2008-01-30  Murray Cumming  <murrayc@murrayc.com>
 
 	* docs/tutorial/clutter-tut.xml: Change mentions of GtkClutter to GtkClutterEmbed.
-	* examples/stage_widget/main.c: (main): Use the new GtkClutterEmbed instead of the 
+	* examples/stage_widget/main.c: (main): Use the new GtkClutterEmbed instead of the
 	old (removed) GtkClutter widget.
 	* examples/full_example/main.c: (on_timeline_rotation_completed):
 	Adapt to the new signature of the clutter_behaviour_scale_new() function.
@@ -570,26 +577,26 @@ This is svn trunk, for clutter-0.7. See also the clutter-tutorial-0-6 branch.
 
 2007-12-17  Murray Cumming  <murrayc@murrayc.com>
 
-	* docs/tutorial/clutter-tut.xml: Corrected the events chain sections, now explaining the 
-	capture-event signal. 
+	* docs/tutorial/clutter-tut.xml: Corrected the events chain sections, now explaining the
+	capture-event signal.
 
 2007-12-17  Murray Cumming  <murrayc@murrayc.com>
 
-	* docs/tutorial/clutter-tut.xml: Introduction: Mention that it is 
-	a retatained mode API, though that would be obvious if you already knew what 
+	* docs/tutorial/clutter-tut.xml: Introduction: Mention that it is
+	a retatained mode API, though that would be obvious if you already knew what
 	that meant.
-	Mention that timelines and behaviours use callback functions of time to change actor properties. 
-	I don't see much more that we can say about these without reallying getting into the details, 
+	Mention that timelines and behaviours use callback functions of time to change actor properties.
+	I don't see much more that we can say about these without reallying getting into the details,
 	which we do in the relevant chapters.
 	Actors: Mention show/hide.
 	Actors: Events: Describe false/true return value and the sequence of actors that handle events.
 	Effects, Behaviours: Mention CLUTTER_ALPHA_MAX.
-	
+
 	These changes are based on the notes from Matthew Allum.
 
 2007-12-14  Murray Cumming  <murrayc@murrayc.com>
 
-	* docs/tutorial/clutter-tut.xml: Actor Events: 
+	* docs/tutorial/clutter-tut.xml: Actor Events:
 	motion events are now on by default, so rephrase.
 	* examples/actor_events/main.c: (main):
 	* examples/full_example/main.c: (main):
@@ -597,61 +604,61 @@ This is svn trunk, for clutter-0.7. See also the clutter-tutorial-0-6 branch.
 
 2007-12-14  Murray Cumming  <murrayc@murrayc.com>
 
-	* docs/tutorial/clutter-tut.xml: Timelines, Behaviours: Mention the 
-	ClutterTimeline::completed signal, which you should handle when you want 
+	* docs/tutorial/clutter-tut.xml: Timelines, Behaviours: Mention the
+	ClutterTimeline::completed signal, which you should handle when you want
 	to unref timelines and behaviours as soon as possible.
 
 2007-12-14  Murray Cumming  <murrayc@murrayc.com>
 
-	* docs/tutorial/clutter-tut.xml: Behaviours: ClutterAlpha _does_ have a a 
+	* docs/tutorial/clutter-tut.xml: Behaviours: ClutterAlpha _does_ have a a
 	floating reference.
 	* examples/full_example/main.c: (add_to_ellipse_behaviour),
-	(on_timeline_rotation_completed): Do not unref the ClutterAlpha because it has a 
-	floating reference. 
+	(on_timeline_rotation_completed): Do not unref the ClutterAlpha because it has a
+	floating reference.
 
 2007-12-14  Murray Cumming  <murrayc@murrayc.com>
 
-	* docs/tutorial/style.css: Make the header pink with black text, to be slightly 
+	* docs/tutorial/style.css: Make the header pink with black text, to be slightly
 	more like the default gtk-doc style.
 	* docs/tutorial/clutter-tut.xml: Full Example: Added a description of what it does.
 	* docs/tutorial/figures/Makefile.am:
 	* docs/tutorial/figures/: Added full_example.png.
-	* examples/full_example/main.c: Make the background gray. Add a white rectangle under 
+	* examples/full_example/main.c: Make the background gray. Add a white rectangle under
 	the ellipse to give more sense of 3D. This is still rather ugly.
 
 2007-12-13  Murray Cumming  <murrayc@murrayc.com>
 
-	* examples/full_example/main.c: Gradualyl show a label with the filename 
-	when showing the item. I could make this more attractive when we have 
-	container actors again. 
+	* examples/full_example/main.c: Gradualyl show a label with the filename
+	when showing the item. I could make this more attractive when we have
+	container actors again.
 
 2007-12-13  Murray Cumming  <murrayc@murrayc.com>
 
 	* examples/behaviour/main.c: (main):
 	* examples/effects/main.c: (main):
-	* examples/timeline/main.c: (main): unref the timeline when the mainloop 
+	* examples/timeline/main.c: (main): unref the timeline when the mainloop
 	stops.
-	* examples/full_example/main.c: Avoid using even 360 degrees (not just >360) 
-	to avoid an extra rotation of some items. Move and scale the clicked item 
+	* examples/full_example/main.c: Avoid using even 360 degrees (not just >360)
+	to avoid an extra rotation of some items. Move and scale the clicked item
 	when the rotation stops.
 
 2007-12-13  Murray Cumming  <murrayc@murrayc.com>
 
-	* docs/tutorial/clutter-tut.xml: Contributing: 
+	* docs/tutorial/clutter-tut.xml: Contributing:
 	Correct the email address.
-	Timelines: Mention behaviours and actors, while 
-	still avoiding trying to explain them all in one 
-	paragraph, because each chapter explains the advantage 
-	compared to the previous one. I don't want to confuse 
+	Timelines: Mention behaviours and actors, while
+	still avoiding trying to explain them all in one
+	paragraph, because each chapter explains the advantage
+	compared to the previous one. I don't want to confuse
 	people with too many concepts too quickly.
-	Actor Events: Mention 
-	clutter_set_motion_events_enabled() and 
+	Actor Events: Mention
+	clutter_set_motion_events_enabled() and
 	clutter_actor_set_reactive().
 	Thanks to Tommi Komulainen for the suggestions.
 
 2007-12-12  Murray Cumming  <murrayc@murrayc.com>
 
-	* docs/tutorial/clutter-tut.xml: Behaviours: 
+	* docs/tutorial/clutter-tut.xml: Behaviours:
 	List the standard behaviours.
 
 2007-12-12  Murray Cumming  <murrayc@murrayc.com>
@@ -660,12 +667,12 @@ This is svn trunk, for clutter-0.7. See also the clutter-tutorial-0-6 branch.
 	* examples/Makefile.am:
 	* examples/actor_transformations/main.c: (main):
 	Added this example.
-	* examples/actor/main.c: (main): Removed the 
+	* examples/actor/main.c: (main): Removed the
 	rotation from this example.
-	* docs/tutorial/clutter-tut.xml: Actors: Added a 
+	* docs/tutorial/clutter-tut.xml: Actors: Added a
 	transformations sub-section.
 	* docs/tutorial/figures/Makefile.am:
-	* docs/tutorial/figures/: Added screenshots for 
+	* docs/tutorial/figures/: Added screenshots for
 	actor_events and actor_transformations.
 
 2007-12-10  Murray Cumming  <murrayc@murrayc.com>
@@ -675,13 +682,13 @@ This is svn trunk, for clutter-0.7. See also the clutter-tutorial-0-6 branch.
 
 2007-12-10  Murray Cumming  <murrayc@murrayc.com>
 
-	* docs/tutorial/clutter-tut.xml: Put all the text in a sect1 instead of just at 
-	the start of a chapter or appendix. Otherwise people will often jump straight past 
+	* docs/tutorial/clutter-tut.xml: Put all the text in a sect1 instead of just at
+	the start of a chapter or appendix. Otherwise people will often jump straight past
 	it to the example if the example is the only thing listed in the table of contents.
 
 2007-12-10  Murray Cumming  <murrayc@murrayc.com>
 
-	* examples/custom_actor/main.c: (main): Do not rotate the actor because 
+	* examples/custom_actor/main.c: (main): Do not rotate the actor because
 	this obscures the example.
 	* examples/custom_actor/triangle_actor.c: (clutter_triangle_paint):
 	Paint a triangle with GL instead of a rectangle.
@@ -689,17 +696,17 @@ This is svn trunk, for clutter-0.7. See also the clutter-tutorial-0-6 branch.
 2007-12-10  Murray Cumming  <murrayc@murrayc.com>
 
 	* docs/tutorial/clutter-tut.xml: Effects section, Behaviours section:
-	Mention the effects are a simple wrapper around Behaviours, and say when 
+	Mention the effects are a simple wrapper around Behaviours, and say when
 	they are not enough.
-	Remind people to unref the effect template. 
+	Remind people to unref the effect template.
 	* examples/effects/main.c: (main): Unref the effect template.
 
 2007-12-09  Murray Cumming  <murrayc@murrayc.com>
 
-	* examples/full_example/main.c: Limit angles to less than 360, 
+	* examples/full_example/main.c: Limit angles to less than 360,
 	which seems to stop the last item from going around an extra time,
  	but sometimes other items go around an extra time instead.
-	The calculations need to be cleaned up when this is working 
+	The calculations need to be cleaned up when this is working
 	properly.
 
 2007-12-07  Murray Cumming  <murrayc@murrayc.com>
@@ -708,10 +715,10 @@ This is svn trunk, for clutter-0.7. See also the clutter-tutorial-0-6 branch.
 	* docs/tutorial/clutter-tut.xml:
 	* docs/tutorial/figures/Makefile.am:
 	* examples/Makefile.am:
-	* examples/effects/main.c: 
-	Added an Effects chapter and example. I am not sure yet that I 
-	see the advantage of Behaviours over Effects, and the 
-	ClutterEffectsTemplate objects does not seem better than just 
+	* examples/effects/main.c:
+	Added an Effects chapter and example. I am not sure yet that I
+	see the advantage of Behaviours over Effects, and the
+	ClutterEffectsTemplate objects does not seem better than just
 	passing the timeline and alpha-callback to an effect function.
 
 2007-12-07  Murray Cumming  <murrayc@murrayc.com>
@@ -721,7 +728,7 @@ This is svn trunk, for clutter-0.7. See also the clutter-tutorial-0-6 branch.
 
 2007-12-05  Murray Cumming  <murrayc@murrayc.com>
 
-	* docs/tutorial/clutter-tut.xml: Introduction: Mention that both 
+	* docs/tutorial/clutter-tut.xml: Introduction: Mention that both
 	OpenGL or OpenGL ES may be used as the backend.
 
 2007-12-05  Murray Cumming  <murrayc@murrayc.com>
@@ -732,31 +739,31 @@ This is svn trunk, for clutter-0.7. See also the clutter-tutorial-0-6 branch.
 	* examples/custom_actor/Makefile.am:
 	* examples/custom_actor/main.c:
 	* examples/custom_actor/triangle_actor.c:
-	* examples/custom_actor/triangle_actor.h: Added a custom actor 
-	example by copying and simplifying ClutterRectangle. Described 
-	the implementation. Still need to actually make it paint a 
+	* examples/custom_actor/triangle_actor.h: Added a custom actor
+	example by copying and simplifying ClutterRectangle. Described
+	the implementation. Still need to actually make it paint a
 	triangle though.
 
 2007-12-05  Murray Cumming  <murrayc@murrayc.com>
 
-	* docs/tutorial/clutter-tut.xml: Behaviours: Mention that the 
-	alpha callback will need to discover the timeline current and total 
+	* docs/tutorial/clutter-tut.xml: Behaviours: Mention that the
+	alpha callback will need to discover the timeline current and total
 	frames.
 	Timelines: Give hints about the duration of a timeline.
 	Mention unrefing of behaviours and timelines.
-	* examples/behaviour/main.c: (on_alpha): Use the timeline. Now this 
+	* examples/behaviour/main.c: (on_alpha): Use the timeline. Now this
 	makes more sense.
 
 2007-12-05  Murray Cumming  <murrayc@murrayc.com>
 
-	* examples/full_example/main.c: Made this slightly more useful, 
-	trying to make a clicked image rotate to the front. 
-	But clutter_behaviour_ellipse_set_angle_end() does not seem to 
+	* examples/full_example/main.c: Made this slightly more useful,
+	trying to make a clicked image rotate to the front.
+	But clutter_behaviour_ellipse_set_angle_end() does not seem to
 	have the desired effect.
 
 2007-12-05  Murray Cumming  <murrayc@murrayc.com>
 
-	* docs/tutorial/clutter-tut.xml: Introduction: 
+	* docs/tutorial/clutter-tut.xml: Introduction:
 	Mention that the examples are mostly unimpressive visually,
 	on purpose, but that the full example should be more impressive.
 	* configure.ac:
@@ -764,21 +771,21 @@ This is svn trunk, for clutter-0.7. See also the clutter-tutorial-0-6 branch.
 	* examples/full_example/Makefile.am:
 	* examples/full_example/README:
 	* examples/full_example/images/
-	* examples/full_example/main.c: Added the beginnings of a 
+	* examples/full_example/main.c: Added the beginnings of a
 	very simple image browser.
 
 2007-12-05  Murray Cumming  <murrayc@murrayc.com>
 
-	* Makefile_web.am_fragment: Add an html upload location on 
+	* Makefile_web.am_fragment: Add an html upload location on
 	openismus.com for now.
 	* docs/index.html: Remove the maemomm content.
-	* docs/tutorial/clutter-tut.xml: Introduction: Rephrase - 
+	* docs/tutorial/clutter-tut.xml: Introduction: Rephrase -
 	Clutter is not really an extension of GTK+.
 	Actors: Mention the floating reference.
 
 2007-12-04  Murray Cumming  <murrayc@murrayc.com>
 
-	* docs/tutorial/clutter-tut.xml: Corrected the figure titles, 
+	* docs/tutorial/clutter-tut.xml: Corrected the figure titles,
 	and fixed a markup typo.
 
 2007-12-04  Murray Cumming  <murrayc@murrayc.com>
@@ -789,18 +796,18 @@ This is svn trunk, for clutter-0.7. See also the clutter-tutorial-0-6 branch.
 	* docs/tutorial/figures/stage_widget.am:
 	* examples/Makefile.am:
 	* examples/stage_widget/main.c:
-	Added a section and example to show the use of ClutterWidget and 
+	Added a section and example to show the use of ClutterWidget and
 	clarified that a regular stage does not need GTK+.
 
 2007-12-03  Murray Cumming  <murrayc@murrayc.com>
 
 	* docs/tutorial/clutter-tut.xml:
 	* docs/tutorial/figures/Makefile.am:
-	* docs/tutorial/figures/timeline.png: Added timeline chapter 
+	* docs/tutorial/figures/timeline.png: Added timeline chapter
 	text and screeshot.
 	* examples/timeline/main.c: (on_timeline_new_frame):
-	Change the color too, to show that timeline callbacks are good 
-	for changing more than one property (or more than one actor), 
+	Change the color too, to show that timeline callbacks are good
+	for changing more than one property (or more than one actor),
 	compared to a behaviour.
 
 2007-12-03  Murray Cumming  <murrayc@murrayc.com>
@@ -808,7 +815,7 @@ This is svn trunk, for clutter-0.7. See also the clutter-tutorial-0-6 branch.
 	* docs/tutorial/clutter-tut.xml:
 	* docs/tutorial/figures/Makefile.am:
 	* docs/tutorial/figures/behaviours.png:
-	* examples/behaviour/main.c: Added text and screenshot for 
+	* examples/behaviour/main.c: Added text and screenshot for
 	behaviours chapter.
 
 2007-12-03  Murray Cumming  <murrayc@murrayc.com>
@@ -816,7 +823,7 @@ This is svn trunk, for clutter-0.7. See also the clutter-tutorial-0-6 branch.
 	* docs/tutorial/clutter-tut.xml:
 	* docs/tutorial/figures/Makefile.am:
 	* docs/tutorial/figures/actors.png:
-	* examples/actor/main.c: Added some text and a screenshot to 
+	* examples/actor/main.c: Added some text and a screenshot to
 	the actors chapter.
 
 2007-12-03  Murray Cumming  <murrayc@murrayc.com>
@@ -839,32 +846,29 @@ This is svn trunk, for clutter-0.7. See also the clutter-tutorial-0-6 branch.
 2007-11-29  Murray Cumming  <murrayc@murrayc.com>
 
 	* docs/tutorial/clutter-tut.xml: Added markup for examples.
-	* docs/tutorial/insert_example_code.pl: Use .c files instead 
+	* docs/tutorial/insert_example_code.pl: Use .c files instead
 	of .cc files.
 
 2007-11-29  Murray Cumming  <murrayc@murrayc.com>
 
-	* docs/tutorial/clutter-tut.xml: Wrote the installation text, 
-	though this only mentions Ubuntu and will need to be updated 
+	* docs/tutorial/clutter-tut.xml: Wrote the installation text,
+	though this only mentions Ubuntu and will need to be updated
 	later for new clutter versions.
 
 2007-11-29  Murray Cumming  <murrayc@murrayc.com>
 
-	* docs/tutorial/clutter-tut.xml: Added the expected document 
+	* docs/tutorial/clutter-tut.xml: Added the expected document
 	structure and TODO text for each section.
 
 2007-11-29  Murray Cumming  <murrayc@murrayc.com>
 
-	* examples/Makefile.am: Commented out the containers 
-	example for now because they have been removed from clutter 
+	* examples/Makefile.am: Commented out the containers
+	example for now because they have been removed from clutter
 	and the new high-level clutter library does not exist yet.
 	* examples/actor/main.c: (main):
 	* examples/actor_events/main.c: (main):
-	Replace use of deprecated clutter_actor_rotate_x() with 
+	Replace use of deprecated clutter_actor_rotate_x() with
 	clutter_actor_set_rotation().
-	* examples/timeline/main.c: (on_timeline_new_frame): 
-	Replace use of removed clutter_enable_motion_events() 
+	* examples/timeline/main.c: (on_timeline_new_frame):
+	Replace use of removed clutter_enable_motion_events()
 	with clutter_set_motion_events_enabled().
-	
-
-

@@ -27,7 +27,7 @@ ClutterActor *rect = NULL;
 gdouble
 on_alpha (ClutterAlpha *alpha, gpointer data)
 {
-  /* Get the position in the timeline, 
+  /* Get the position in the timeline,
    *  so we can base our value upon it:
    */
   ClutterTimeline *timeline = clutter_alpha_get_timeline (alpha);
@@ -58,26 +58,25 @@ int main(int argc, char *argv[])
   clutter_actor_show (stage);
 
   ClutterTimeline *timeline =  clutter_timeline_new(5000 /* milliseconds */);
-  clutter_timeline_set_loop(timeline, TRUE); 
+  clutter_timeline_set_loop(timeline, TRUE);
   clutter_timeline_start(timeline);
 
   /* Create a clutter alpha for the animation */
   ClutterAlpha* alpha = clutter_alpha_new_with_func (timeline, &on_alpha, NULL, NULL);
+  g_object_unref (timeline);
 
   /* Create an animation to change the properties */
-  ClutterAnimation* animation = 
-    clutter_actor_animate_with_alpha (rect, alpha, 
-      "x", 150.0, 
+  ClutterAnimation* animation =
+    clutter_actor_animate_with_alpha (rect, alpha,
+      "x", 150.0,
       "y", 150.0,
       "opacity", 0,
       NULL);
 
-  g_object_unref (animation);
-  g_object_unref (timeline);
-
   /* Start the main loop, so we can respond to events: */
   clutter_main ();
 
+  g_object_unref (animation);
+
   return EXIT_SUCCESS;
 }
-
