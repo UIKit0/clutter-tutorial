@@ -23,8 +23,8 @@ gint rotation_angle = 0;
 gint color_change_count = 0;
 
 void
-on_timeline_new_frame (ClutterTimeline *timeline, 
-  gint frame_num, gpointer data)
+on_timeline_new_frame (ClutterTimeline *timeline G_GNUC_UNUSED, 
+  gint frame_num G_GNUC_UNUSED, gpointer data G_GNUC_UNUSED)
 {
   rotation_angle += 1;
   if(rotation_angle >= 360)
@@ -54,10 +54,10 @@ on_timeline_new_frame (ClutterTimeline *timeline,
 }
 
 void
-on_timeline_marker_reached (ClutterTimeline* timeline,
+on_timeline_marker_reached (ClutterTimeline* timeline G_GNUC_UNUSED,
                             gchar*           marker_name,
                             gint             frame_num,
-                            gpointer         user_data)
+                            gpointer         user_data G_GNUC_UNUSED)
 {
   printf ("Reached marker %s at frame %d.\n",
     marker_name, frame_num);

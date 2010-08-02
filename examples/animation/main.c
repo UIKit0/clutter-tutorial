@@ -25,7 +25,7 @@ ClutterActor *rect = NULL;
  *
  */
 gdouble
-on_alpha (ClutterAlpha *alpha, gpointer data)
+on_alpha (ClutterAlpha *alpha, gpointer data G_GNUC_UNUSED)
 {
   /* Get the position in the timeline,
    *  so we can base our value upon it:

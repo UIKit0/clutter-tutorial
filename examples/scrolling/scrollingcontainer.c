@@ -175,7 +175,7 @@ example_scrolling_container_allocate (ClutterActor          *actor,
     height = 0;
 
   /* Arrange the group: */
-  ClutterActorBox child_box = { 0, };
+  ClutterActorBox child_box = {0, 0, 0, 0};
   child_box.x1 = 0;
   child_box.x2 = width;
 

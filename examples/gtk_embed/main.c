@@ -22,7 +22,7 @@
 ClutterActor *stage = NULL;
 
 static gboolean
-on_button_clicked (GtkButton *button, gpointer user_data)
+on_button_clicked (GtkButton *button G_GNUC_UNUSED, gpointer user_data G_GNUC_UNUSED)
 {
   static gboolean already_changed = FALSE;
   if(already_changed)
@@ -42,13 +42,13 @@ on_button_clicked (GtkButton *button, gpointer user_data)
 }
 
 static gboolean
-on_stage_button_press (ClutterStage *stage, ClutterEvent *event, gpointer user_data)
+on_stage_button_press (ClutterStage *stage G_GNUC_UNUSED, ClutterEvent *event, gpointer user_data G_GNUC_UNUSED)
 {
-  gint x = 0;
-  gint y = 0;
+  gfloat x = 0;
+  gfloat y = 0;
   clutter_event_get_coords (event, &x, &y);
 
-  g_print ("Stage clicked at (%d, %d)\n", x, y);
+  g_print ("Stage clicked at (%f, %f)\n", x, y);
 
   return TRUE; /* Stop further handling of this event. */
 }

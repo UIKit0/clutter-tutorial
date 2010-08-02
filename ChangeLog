@@ -1,3 +1,26 @@
+2010-08-02  Murray Cumming  <murrayc@murrayc.com>
+
+	Fix warnings, mostly by using G_GNUC_UNUSED.
+
+	* examples/animation/main.c (on_alpha):
+	* examples/behaviour/main.c (on_alpha):
+	* examples/custom_container/examplebox.c
+	(example_box_get_preferred_height), (example_box_allocate):
+	* examples/full_example/main.c (on_foreach_clear_list_items),
+	(on_timeline_moveup_completed), (on_timeline_rotation_completed),
+	(on_texture_button_press):
+	* examples/score/main.c (on_timeline_rotation_new_frame),
+	(on_timeline_move_new_frame):
+	* examples/scrolling/main.c (on_stage_button_press):
+	* examples/scrolling/scrollingcontainer.c
+	(example_scrolling_container_allocate):
+	* examples/stage/main.c (on_stage_button_press):
+	* examples/timeline/main.c (on_timeline_new_frame),
+	(on_timeline_marker_reached): Add G_GNUC_UNUSED
+	* examples/gtk_embed/main.c (on_button_clicked): : Add G_GNUC_UNUSED.
+	(on_stage_button_press): Use float instead of int with 
+	clutter_event_get_coords().
+
 2010-06-14  Murray Cumming  <murrayc@murrayc.com>
 
 	Animation example: Don't unref the animation before even running main loop.

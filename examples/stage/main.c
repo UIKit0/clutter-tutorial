@@ -18,7 +18,7 @@
 #include <stdlib.h>
 
 static gboolean
-on_stage_button_press (ClutterStage *stage, ClutterEvent *event, gpointer data)
+on_stage_button_press (ClutterStage *stage G_GNUC_UNUSED, ClutterEvent *event, gpointer data G_GNUC_UNUSED)
 {
   float x = 0;
   float y = 0;

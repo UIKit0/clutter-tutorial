@@ -24,8 +24,8 @@ gint color_change_count = 0;
 
 /* Rotate the rectangle and alternate its color. */
 void
-on_timeline_rotation_new_frame (ClutterTimeline *timeline, 
-  gint frame_num, gpointer data)
+on_timeline_rotation_new_frame (ClutterTimeline *timeline G_GNUC_UNUSED, 
+  gint frame_num G_GNUC_UNUSED, gpointer data G_GNUC_UNUSED)
 {
   rotation_angle += 1;
   if(rotation_angle >= 360)
@@ -56,8 +56,8 @@ on_timeline_rotation_new_frame (ClutterTimeline *timeline,
 
 /* Move the rectangle. */
 void
-on_timeline_move_new_frame (ClutterTimeline *timeline, 
-  gint frame_num, gpointer data)
+on_timeline_move_new_frame (ClutterTimeline *timeline G_GNUC_UNUSED, 
+  gint frame_num G_GNUC_UNUSED, gpointer data G_GNUC_UNUSED)
 {
   gint x_position = clutter_actor_get_x (rect);
 

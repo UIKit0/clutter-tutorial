@@ -231,7 +231,7 @@ example_box_get_preferred_width (ClutterActor *actor,
 /* An implementation for the ClutterActor::get_preferred_height() vfunc: */
 static void
 example_box_get_preferred_height (ClutterActor *actor,
-                                  float for_width,
+                                  float for_width G_GNUC_UNUSED,
                                   float *min_height_p,
                                   float *natural_height_p)
 {
@@ -290,7 +290,7 @@ example_box_allocate (ClutterActor          *actor,
       /* Calculate the position and size that the child may actually have: */
 
       /* Position the child just after the previous child, horizontally: */
-      ClutterActorBox child_box = { 0, };
+      ClutterActorBox child_box = { 0, 0, 0, 0};
       child_box.x1 = child_x;
       child_box.x2 = child_x + child_width;
       child_x = child_box.x2;

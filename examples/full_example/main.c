@@ -53,7 +53,7 @@ Item* item_at_front = NULL;
 
 GSList *list_items = 0;
 
-void on_foreach_clear_list_items(gpointer data, gpointer user_data)
+void on_foreach_clear_list_items(gpointer data, gpointer user_data G_GNUC_UNUSED)
 {
   Item* item = (Item*)data;
 
@@ -183,7 +183,7 @@ gdouble angle_in_360(gdouble angle)
 /* This signal handler is called when the item has finished 
  * moving up and increasing in size.
  */
-void on_timeline_moveup_completed(ClutterTimeline* timeline, gpointer user_data)
+void on_timeline_moveup_completed(ClutterTimeline* timeline G_GNUC_UNUSED, gpointer user_data G_GNUC_UNUSED)
 {
   /* Unref this timeline because we have now finished with it: */
   g_object_unref (timeline_moveup);
@@ -202,7 +202,7 @@ void on_timeline_moveup_completed(ClutterTimeline* timeline, gpointer user_data)
 /* This signal handler is called when the items have completely 
  * rotated around the ellipse.
  */
-void on_timeline_rotation_completed(ClutterTimeline* timeline, gpointer user_data)
+void on_timeline_rotation_completed(ClutterTimeline* timeline G_GNUC_UNUSED, gpointer user_data G_GNUC_UNUSED)
 {
   /* All the items have now been rotated so that the clicked item is at the
    * front.  Now we transform just this one item gradually some more, and
@@ -347,7 +347,7 @@ void rotate_all_until_item_is_at_front(Item *item)
 }
 
 static gboolean
-on_texture_button_press (ClutterActor *actor, ClutterEvent *event, gpointer user_data)
+on_texture_button_press (ClutterActor *actor G_GNUC_UNUSED, ClutterEvent *event G_GNUC_UNUSED, gpointer user_data G_GNUC_UNUSED)
 {
   /* Ignore the events if the timeline_rotation is running (meaning, if the objects are moving),
    * to simplify things:

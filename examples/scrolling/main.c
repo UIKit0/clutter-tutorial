@@ -22,7 +22,7 @@ ClutterActor *scrolling = NULL;
 
 
 static gboolean
-on_stage_button_press (ClutterStage *stage, ClutterEvent *event, gpointer data)
+on_stage_button_press (ClutterStage *stage G_GNUC_UNUSED, ClutterEvent *event G_GNUC_UNUSED, gpointer data G_GNUC_UNUSED)
 {
   printf ("Scrolling\n");
 
